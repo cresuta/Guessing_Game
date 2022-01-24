@@ -3,17 +3,26 @@
     static void Main(string[] args)
     {
         int secretNumber = 42;
+        int guessCount = 0;
         int input;
-        Console.WriteLine("Guess the secret number:");
-        input = Convert.ToInt32(Console.ReadLine());
 
-        if(input == secretNumber) 
+        while (guessCount < 4)
         {
-            Console.WriteLine("CORRECT!");
-        } 
-        else
-        {
-            Console.WriteLine("Sorry, incorrect guess!");
+            Console.WriteLine("Guess the secret number:");
+            input = Convert.ToInt32(Console.ReadLine());
+
+            if (input == secretNumber)
+            {
+                Console.WriteLine("CORRECT!");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Sorry, incorrect guess!");
+                guessCount++;
+
+            }
+
         }
     }
 }
