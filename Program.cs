@@ -2,9 +2,10 @@
 {
     static void Main(string[] args)
     {
-        string input;
+        int input;
         Console.WriteLine("Guess the secret number:");
-        input = Console.ReadLine();
+        input = Convert.ToInt32(Console.ReadLine());
+
         Console.WriteLine($"Your guess was: {input}");
     }
 }
