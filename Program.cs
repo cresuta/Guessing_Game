@@ -5,35 +5,35 @@
         Random random = new Random();
         int secretNumber = random.Next(1, 100);
         int guessCount = 0;
-        int input;
-
-
-        while (guessCount < 4)
+        int userGuess;
+        int chosenDifficultyLevel;
+        
+        Console.WriteLine($"Type '100' for cheater, '8' for easy, '6' for medium, or '4' for hard:");
+        chosenDifficultyLevel = Convert.ToInt32(Console.ReadLine());
+        
+    
+        while (guessCount < chosenDifficultyLevel)
         {
-            // Console.WriteLine($"Random number to guess is: {secretNumber}");
             Console.WriteLine("Guess the secret number:");
-            input = Convert.ToInt32(Console.ReadLine());
+            userGuess = Convert.ToInt32(Console.ReadLine());
 
-            if (input < secretNumber)
+            if (userGuess < secretNumber)
             {
                 Console.WriteLine("\nToo Low");
+                guessCount++;
+                Console.WriteLine($"Number of guesses left ({chosenDifficultyLevel - guessCount})");
             }
-            else if (input > secretNumber)
+            else if (userGuess > secretNumber)
             {
                 Console.WriteLine("\nToo High");
+                guessCount++;
+                Console.WriteLine($"Number of guesses left ({chosenDifficultyLevel - guessCount})");
             }
-            else if (input == secretNumber)
+            else if (userGuess == secretNumber)
             {
                 Console.WriteLine("\nCORRECT!");
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Sorry, incorrect guess!");
-                Console.WriteLine($"\nPrevious guess ({input})");
                 guessCount++;
-                Console.WriteLine($"Number of guesses left ({4 - guessCount})");
-
+                break;
             }
 
         }
